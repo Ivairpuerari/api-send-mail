@@ -1,7 +1,5 @@
 package com.ivairpuerari.apiSendMail.resources;
 
-import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,19 +36,5 @@ public class RegistrationResource {
 		}
 		
 		return "Send Mail. Finisehd!";
-	}
-	
-	@RequestMapping("send-mail-attachment")
-	public String sendWithAttachment() throws MessagingException {
-		
-		user.setEmailAddres("ivaair@hotmail.com");
-		
-		try {
-			notificationServcice.sendEmailWithAttachment(user);
-		} catch (MailException mailException) {
-			System.out.println(mailException);
-		}
-		
-		return "Send Mail with attachment. Finisehd!";
 	}
 }
